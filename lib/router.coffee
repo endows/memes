@@ -7,7 +7,7 @@ Router.configure
   ]
 
 Router.map ->
-  @route "/", -> @render "index"
+  @route "/", -> Router.go '/streams'
   @route "streams", controller: "StreamsController", action: "index", name: "streams"
   @route "streams/new", controller: "StreamsController", action: "new", name: "new_stream"
   @route "streams/:_id", controller: "StreamsController", action: "show", name: "stream"

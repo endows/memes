@@ -4,12 +4,12 @@ StreamsController = ApplicationController.extend
   ]
 
   index: ->
-    @render "StreamIndex", data: Stream.find()
+    @render "StreamIndex", data: Stream.find().fetch().reverse()
 
   show: ->
     data = {
       stream:Stream.findOne(@params._id)
-      posts:Post.find stream:@params._id
+      posts:Post.find({stream:@params._id}).fetch().reverse()
     }
     @render "StreamShow", data: data
 
