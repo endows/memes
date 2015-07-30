@@ -10,3 +10,4 @@ AutoForm.hooks
       Router.go "posts"
 
 Template.PostNew.rendered = ->
+  Session.set 'stream_id',Router.current().params.query.stream_id

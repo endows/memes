@@ -1,8 +1,6 @@
 Post = new Meteor.Collection "posts"
 
 Post.attachSchema new SimpleSchema {
-  user:
-    type: String
   body:
     type: String
   stream:
@@ -21,11 +19,10 @@ Post.allow
   remove: (userId, doc) ->
     true
 
-Post.before.insert (userId, doc)->
-  doc.user = "Date.now();"
-  doc.stream = "Router.current().params.query.stream"
-  doc.favo_count = 0
-  doc
+if Meteor.isClient
+  Post.before.insert (userId, doc)->
+    doc.stream = Session.get 'stream_id'
+    doc.favo_count = 0
 
 
 (global ? window).Post = Post
