@@ -21,7 +21,7 @@ Post.allow
 
 if Meteor.isClient
   Post.before.insert (userId, doc)->
-    doc.stream = "Session.get 'stream_id'"
+    doc.stream = Session.get 'stream_id'
     doc.favo_count = 0
 
 
