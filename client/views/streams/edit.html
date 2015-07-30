@@ -1,0 +1,11 @@
+<template name="StreamEdit">
+  <div class="container">
+    <div class="row-fluid">
+      <h1>Edit Stream</h1>
+      {{#autoForm collection="Stream" doc=this type="update" id="edit-stream-form"}}
+        {{> StreamFields}}
+        <button type="submit" class="btn btn-primary">Update</button>
+      {{/autoForm}}
+    </div>
+  </div>
+</template>
