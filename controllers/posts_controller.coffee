@@ -5,7 +5,7 @@ PostsController = ApplicationController.extend
   ]
 
   index: ->
-    @render "PostIndex", data: Post.find()
+    @render "PostIndex", data: Post.find().fetch().reverse()
 
   show: ->
     @render "PostShow", data: Post.findOne(@params._id)
@@ -18,9 +18,10 @@ PostsController = ApplicationController.extend
     @render "PostEdit", data: Post.findOne(@params._id)
 
   favo: ->
-    if !localStorage[@params._id]
+    if !localStorage[@params._id] and Session.get 'star'
       Post.update({_id:@params._id},{$inc:{favo_count:1}})
       localStorage[@params._id] = 'voted'
+      Session.set 'star',Session.get('star') - 1
     Router.go('/posts/')
 
 

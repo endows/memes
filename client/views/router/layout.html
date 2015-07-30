@@ -5,8 +5,22 @@
 </head>
 
 <body>
+
 </body>
 
 <template name="layout">
+  <h1>
+    {{#each haveStar}}
+    <i class='fa fa-star' style='color:#f1c40f;'></i> {{/each}} {{#each emptyStar}}
+    <i class='fa fa-star-o' style='color:#f1c40f;'></i> {{/each}}
+  </h1>
+  <div class='col-md-5'>
+    <div class="progress">
+      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{barLength}}%">
+        <span class="sr-only">60% Complete (warning)</span>
+      </div>
+    </div>
+  </div>
+
   {{> yield}}
 </template>
