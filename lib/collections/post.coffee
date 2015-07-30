@@ -22,7 +22,6 @@ Post.allow
     true
 
 Post.before.insert (userId, doc)->
-  console.log localStorage
   doc.user = "Date.now();"
   doc.stream = "Router.current().params.query.stream"
   doc.favo_count = 0

@@ -17,4 +17,11 @@ PostsController = ApplicationController.extend
   edit: ->
     @render "PostEdit", data: Post.findOne(@params._id)
 
+  favo: ->
+    if !localStorage[@params._id]
+      Post.update({_id:@params._id},{$inc:{favo_count:1}})
+      localStorage[@params._id] = 'voted'
+    Router.go('/posts/')
+
+
 (global ? window).PostsController = PostsController

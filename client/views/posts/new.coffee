@@ -1,6 +1,8 @@
 Template.PostNew.helpers()
 
-Template.PostNew.events()
+Template.PostNew.events
+  'click #favo':->
+    console.log 'ok'
 
 AutoForm.hooks
   "new-post-form":

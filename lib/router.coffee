@@ -16,3 +16,4 @@ Router.map ->
   @route "posts/new", controller: "PostsController", action: "new", name: "new_post"
   @route "posts/:_id", controller: "PostsController", action: "show", name: "post"
   @route "posts/:_id/edit", controller: "PostsController", action: "edit", name: "edit_post"
+  @route "posts/:_id/favo", controller: "PostsController", action: "favo", name: "favo_post"
