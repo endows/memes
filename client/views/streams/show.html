@@ -1,9 +1,9 @@
 <template name="StreamShow">
   <div class="container">
     <div class="row-fluid">
-      <h1>{{title}}</h1>
-      <a class='btn btn-primary' href='/posts/new?stream_id={{_id}}'>投稿</a>
-      <p>Find me in client/views/streams/show.html</p>
+      <h1>{{stream.title}}</h1>
+      <a class='btn btn-primary' href='/posts/new?stream_id={{stream._id}}'>投稿</a>
+      {{> PostIndex posts}}
     </div>
   </div>
 </template>

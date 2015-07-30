@@ -7,7 +7,11 @@ StreamsController = ApplicationController.extend
     @render "StreamIndex", data: Stream.find()
 
   show: ->
-    @render "StreamShow", data: Stream.findOne(@params._id)
+    data = {
+      stream:Stream.findOne(@params._id)
+      posts:Post.find stream:@params._id
+    }
+    @render "StreamShow", data: data
 
   new: ->
     @render "StreamNew"

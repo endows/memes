@@ -6,18 +6,14 @@
         {{#each this}}
           <li class="list-group-item">
             <p>{{body}}</p>
-            <a href="{{pathFor 'favo_post' _id=this._id}}">
+            <a href="#" onclick="favo('{{_id}}')">
               <p>
                 <i class='fa fa-star'>{{favo_count}}</i>
               </p>
             </a>
-
           </li>
         {{/each}}
       </ul>
-      <a href="{{pathFor "new_post"}}" class="btn btn-primary">
-        New Post
-      </a>
     </div>
   </div>
 </template>

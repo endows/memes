@@ -22,7 +22,9 @@ PostsController = ApplicationController.extend
       Post.update({_id:@params._id},{$inc:{favo_count:1}})
       localStorage[@params._id] = 'voted'
       Session.set 'star',Session.get('star') - 1
-    Router.go('/posts/')
+    @render "PostShow", data: Post.findOne(@params._id)
+    # post = Post.findOne({_id:@params._id})
+    # Router.go("/streams/#{post.stream}")
 
 
 (global ? window).PostsController = PostsController
