@@ -1,4 +1,7 @@
 Post = new Meteor.Collection "posts"
+Post._transform = (doc)->
+  doc.stream_obj = Stream.findOne doc.stream
+  doc
 
 Post.attachSchema new SimpleSchema {
   body:
